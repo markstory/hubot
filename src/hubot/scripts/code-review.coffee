@@ -10,29 +10,30 @@ module.exports = (robot) ->
   robot.brain.data.codereview = robot.brain.data.codereview || []
   people = robot.brain.data.codereview
 
-  robot.respond /\bhaz$/i, (msg) ->
-    user = msg.user.id
+  robot.respond /haz/i, (msg) ->
+    user = msg.message.user.id
     if user in people
-      msg.reply 'You are already on my list'
+      msg.send 'You are already on my list.'
     else
       people.push user
-      msg.reply 'Thanks, you will be part of code review today.'
+      msg.send 'Thanks, you will be part of code review today.'
 
-  robot.respond /nohaz$/i, (msg) ->
-    user = msg.user.id
+  robot.respond /nohaz/i, (msg) ->
+    user = msg.message.user.id
 
     if user in people
-      msg.reply "You've been removed from today's code review."
+      people.splice people.indexOf(user), 1
+      msg.send "You've been removed from today's code review."
     else
-      msg.reply "You're not in the list silly"
+      msg.send "You're not in the list silly."
 
-  robot.respond /whohaz$/i, (msg) ->
+  robot.respond /whohaz/i, (msg) ->
     if people.length == 0
       msg.send 'Nobody needs code review. Get to work!'
     else
       msg.send "Awaiting code review: [#{people.join(',')}]"
 
-  robot.respond /\bpairup$/i, (msg) ->
+  robot.respond /pairup/i, (msg) ->
     if people.length < 2
       return msg.send 'Need at least two people for code review!'
     who = people
