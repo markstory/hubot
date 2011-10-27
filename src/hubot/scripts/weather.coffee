@@ -17,7 +17,7 @@ module.exports = (robot) ->
         condition = element.getElementsByTagName('condition')[0].getAttribute('data');
         strings.push "#{day} #{condition} high of: #{convertTemp(high)} low of: #{convertTemp(low)}"
 
-      msg.send strings
+      msg.send strings.join "\n"
 
   robot.respond /weather(?: me)?\s(.*)/, (msg) ->
     query msg, (body, err) ->
@@ -37,7 +37,7 @@ module.exports = (robot) ->
         "#{temp.getAttribute('data')}ºc")
 
       strings.push humidity.getAttribute('data')
-      msg.send string.join "\n"
+      msg.send strings.join "\n"
 
   getDom = (xml) ->
     body = JsDom.jsdom(xml)
