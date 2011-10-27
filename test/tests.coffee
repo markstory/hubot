@@ -22,7 +22,6 @@ exports.danger = (helper, cb) ->
       helper.cb = (messages...) ->
         tests.shift() messages...
         server.close() if tests.length == 0
-        process.exit() if tests.length == 0
 
       cb()
 

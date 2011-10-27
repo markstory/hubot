@@ -17,10 +17,10 @@ tests = [
 ]
 
 danger.start tests, ->
-  helper.receive 'Hubot: haz'
-  helper.receive 'Hubot: haz'
-  helper.receive 'Hubot: nohaz'
-  helper.receive 'Hubot: whohaz'
-  helper.receive 'Hubot: haz'
-  helper.receive 'Hubot: whohaz'
-  helper.receive 'Hubot: pairup'
+  helper.receive 'helper: haz'
+  helper.receive 'helper: haz'
+  helper.receive 'helper: nohaz'
+  helper.receive 'helper: whohaz'
+  helper.receive 'helper: haz'
+  helper.receive 'helper: whohaz'
+  helper.receive 'helper: pairup'

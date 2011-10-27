@@ -22,15 +22,16 @@ tests = [
 ]
 
 danger.start tests, ->
-  helper.receive 'Hubot: qadd 123'
-  helper.receive 'Hubot: qadd 125'
-  helper.receive 'Hubot: qrm'
-  helper.receive 'Hubot: qrm'
-  helper.receive 'Hubot: qadd 123'
-  helper.receive 'Hubot: qadd 456'
-  helper.receive 'Hubot: qadd 789'
-  helper.receive 'Hubot: qdelay 123'
-  helper.receive 'Hubot: qdelay 789'
-  helper.receive 'Hubot: qnext 789'
-  helper.receive 'Hubot: qdelay 999'
-  helper.receive 'Hubot: qls'
+  helper.receive 'helper: qadd 123'
+  helper.receive 'helper: qadd 125'
+  helper.receive 'helper: qrm'
+  helper.receive 'helper: qrm'
+  helper.receive 'helper: qadd 123'
+  helper.receive 'helper: qadd 456'
+  helper.receive 'helper: qadd 789'
+  helper.receive 'helper: qdelay 123'
+  helper.receive 'helper: qdelay 789'
+  helper.receive 'helper: qnext 789'
+  helper.receive 'helper: qdelay 999'
+  helper.receive 'helper: qls'
+
